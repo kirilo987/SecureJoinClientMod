@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "securejoinclientmod",
+  "version": "${version}",
+  "name": "SecureJoinClientMod",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "unlicense",
+  "icon": "assets/securejoinclientmod/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "org.kxysl1k.securejoinclientmod.client.SecurejoinclientmodClient"
+    ],
+    "main": [
+      "org.kxysl1k.securejoinclientmod.Securejoinclientmod"
+    ]
+  },
+  "mixins": [
+    "securejoinclientmod.mixins.json",
+    {
+      "config": "securejoinclientmod.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
