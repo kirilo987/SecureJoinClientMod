@@ -1,35 +1,17 @@
 package com.kxysl1k.network;
 
-import com.kxysl1k.util.SystemInfoCollector;
-import com.kxysl1k.network.DHKeyExchangeHandler;
-import io.netty.buffer.Unpooled;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.network.PacketByteBuf;
-import com.kxysl1k.network.ModPayload;
+import net.minecraft.network.packet.CustomPayload;
+import net.minecraft.util.Identifier;
 
+public record ModPayload(PacketByteBuf buf) implements CustomPayload {
 
-import java.nio.file.Files;
+    public static final Id<ModPayload> ID = new Id<>(
+            Identifier.of("securejoin", "mods"), ModPayload::new
+    );
 
-public class ModDataSender {
-
-    public static void sendData() {
-        try {
-            byte[] pubKey = DHKeyExchangeHandler.getPublicKeyEncoded();
-            byte[] encrypted = Files.readAllBytes(new SystemInfoCollector().getConfigPath());
-            long timestamp = System.currentTimeMillis();
-
-            PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
-            buf.writeInt(pubKey.length);
-            buf.writeBytes(pubKey);
-            buf.writeLong(timestamp);
-            buf.writeInt(encrypted.length);
-            buf.writeBytes(encrypted);
-
-            // 🔄 Надсилання CustomPayload
-            ClientPlayNetworking.send(new ModPayload(buf));
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Override
+    public Id<? extends CustomPayload> getId() {
+        return ID;
     }
 }
