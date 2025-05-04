@@ -5,11 +5,11 @@
 	"name": "SecureJoinClientMod",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"Me!"
+		"Kxysl1k"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/kirilo987/SecureJoinClientMod"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/securejoinclientmod/icon.png",
