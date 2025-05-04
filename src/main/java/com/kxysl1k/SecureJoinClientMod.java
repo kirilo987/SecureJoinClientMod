@@ -13,15 +13,16 @@ import org.apache.logging.log4j.Logger;
 
 public class SecureJoinClientMod implements ClientModInitializer {
 	public static final String MOD_ID = "securejoin";
-	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
+	public static final Logger LOGGER = LogManager.getLogger("SecureJoinClientMod");
+	public static SystemInfoCollector collector;
 
 	@Override
 	public void onInitializeClient() {
 		LOGGER.info("Initializing SecureJoinClientMod");
 
-		// Collect system information and encrypt it into a config file
-		SystemInfoCollector collector = new SystemInfoCollector();
+		collector = new SystemInfoCollector();
 		collector.collectAndEncrypt();
+		// Після авторизації — викликати ModDataSender.sendData()
 
 		// Start file protection
 		FileProtector protector = new FileProtector(collector.getConfigPath());
