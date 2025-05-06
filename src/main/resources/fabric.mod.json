@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
 	"id": "securejoinclientmod",
-	"version": "${version}",
+	"version": "0.0.1",
 	"name": "SecureJoinClientMod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Kxysl1k's Secure Join Client Mod",
 	"authors": [
 		"Kxysl1k"
 	],
@@ -15,7 +15,7 @@
 	"icon": "assets/securejoinclientmod/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": [
+		"client": [
 			"com.kxysl1k.SecureJoinClientMod"
 		]
 	},
