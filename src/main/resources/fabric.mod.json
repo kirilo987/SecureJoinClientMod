@@ -11,7 +11,7 @@
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/kirilo987/SecureJoinClientMod"
 	},
-	"license": "CC0-1.0",
+	"license": "LECENSE",
 	"icon": "assets/securejoinclientmod/icon.png",
 	"environment": "*",
 	"entrypoints": {

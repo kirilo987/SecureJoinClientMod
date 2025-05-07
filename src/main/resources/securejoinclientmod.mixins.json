@@ -2,7 +2,10 @@
 	"required": true,
 	"package": "com.kxysl1k.mixin",
 	"compatibilityLevel": "JAVA_21",
-	"mixins": ["ExampleMixin"],
+	"mixins": [],
+	"client": [
+		"ExampleMixin"
+	],
 	"injectors": {
 		"defaultRequire": 1
 	}

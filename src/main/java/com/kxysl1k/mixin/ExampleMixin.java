@@ -8,9 +8,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftClient.class)
 public class ExampleMixin {
-
-	@Inject(method = "run", at = @At("HEAD"))
-	private void onRun(CallbackInfo info) {
-		System.out.println("[SecureJoinClientMod] MinecraftClient is starting!");
+	@Inject(at = @At("HEAD"), method = "tick()V")
+	private void onTick(CallbackInfo info) {
+		System.out.println("SecureJoinClientMod is running!");
 	}
 }
