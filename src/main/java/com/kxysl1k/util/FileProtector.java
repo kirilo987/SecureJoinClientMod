@@ -20,7 +20,7 @@ public class FileProtector {
     public FileProtector(Path path) {
         this.path = path;
     }
-
+    //шедевро костиль на якому вся защита
     public void startProtection() {
         applyOsProtections();
         task = exec.scheduleAtFixedRate(() -> {

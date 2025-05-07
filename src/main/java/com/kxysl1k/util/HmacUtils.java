@@ -3,6 +3,7 @@ package com.kxysl1k.util;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
+//Генерация ключов з 52 і 42 і 1488 битов(SHA256)
 public class HmacUtils {
     private static final byte[] secret = new byte[]{ /* можна згенерувати рандом */ };
 

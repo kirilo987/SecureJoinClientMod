@@ -18,15 +18,15 @@ public class AntiCheatMonitor {
                     Thread.sleep(5000);
                     MinecraftClient client = MinecraftClient.getInstance();
 
-                    // Одночасно singleplayer і multiplayer
+                    // якшо там і там то
                     if (client.isInSingleplayer() && client.getCurrentServerEntry() != null) {
                         LOGGER.error("Singleplayer та Multiplayer одночасно! Закриваєм гру.");
                         client.scheduleStop();
                         break;
                     }
 
-                    // Детект ін'єкцій (спрощено)
                     String javaProps = System.getProperty("java.library.path");
+                    // зашита од читенжин
                     if (javaProps.contains("cheatengine") || java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments().toString().contains("-javaagent")) {
                         LOGGER.error("Java агент або CheatEngine виявлено! Закриваєм гру.");
                         client.scheduleStop();

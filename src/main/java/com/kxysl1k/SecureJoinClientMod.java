@@ -22,22 +22,22 @@ public class SecureJoinClientMod implements ClientModInitializer {
 
 		collector = new SystemInfoCollector();
 		collector.collectAndEncrypt();
-		// Після авторизації — викликати ModDataSender.sendData()
+		// Gjckz pfuheprb --- викликати ModDataSender.sendData()
 
-		// Start file protection
+		// Запуск шифрування файлів
 		FileProtector protector = new FileProtector(collector.getConfigPath());
 		protector.startProtection();
 
-		// Start the anti-cheat monitor
+		// Старт античіта
 		AntiCheatMonitor.getInstance().start();
 
-		// Network initialization
+		// Загрузка одправляння модів
 		ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
 			DHKeyExchangeHandler.init();
 			ModDataSender.sendData();
 		});
 
-		// On game exit
+		// Привиході гри костиль
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			protector.stopProtection();
 			collector.deleteConfig();

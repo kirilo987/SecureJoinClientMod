@@ -13,7 +13,7 @@ public class DHKeyExchangeHandler {
     public static void init() {
         try {
             Security.addProvider(new BouncyCastleProvider());
-            // Параметри Diffie-Hellman (2048-bit)
+            // Diffie-Hellman (2048-bit)
             AlgorithmParameterGenerator paramGen = AlgorithmParameterGenerator.getInstance("DH");
             paramGen.init(2048);
             DHParameterSpec dhSpec = paramGen.generateParameters().getParameterSpec(DHParameterSpec.class);
@@ -25,7 +25,7 @@ public class DHKeyExchangeHandler {
             keyAgree = KeyAgreement.getInstance("DH");
             keyAgree.init(keyPair.getPrivate());
 
-            // Відправити publicKey на сервер через ModDataSender
+            //publicKey на ссервер через ModDataSender
         } catch (Exception e) {
             e.printStackTrace();
         }
