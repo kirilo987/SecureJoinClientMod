@@ -21,7 +21,7 @@ public record ModDataSender(PacketByteBuf buf) implements CustomPayload {
 
     public static void sendData() {
         try {
-            //шедевро шлях до збереженого .enc файлу з колектора
+            //шедевро шлях до збереженого .enc файлу з колектора1
             Path configPath = SecureJoinClientMod.collector.getConfigPath();
 
             if (!Files.exists(configPath)) {
